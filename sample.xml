@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <!-- Copyright (c) 2013 Thomson Reuters Web of Knowledge -->
+<records xmlns="http://scientific.thomsonreuters.com/schema/wok5.4/public/FullRecord">
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985ANQ5000026</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="8" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="11">
+<page begin="791" end="792" page_count="2">791-792</page>
+</pub_info>
+<titles count="5">
+<title type="source">JOURNAL OF DERMATOLOGIC SURGERY AND ONCOLOGY</title>
+<title type="source_abbrev">J DERMATOL SURG ONC</title>
+<title type="abbrev_11">J DERM SURG</title>
+<title type="abbrev_29">J DERMATOL SURG ONCOL</title>
+<title type="item">CLINICAL ASPECTS OF DYSPLASTIC NEVI</title>
+</titles>
+<names count="1">
+<name role="author" seq_no="1">
+<display_name>GREENE, MH</display_name>
+<full_name>GREENE, MH</full_name>
+<wos_standard>GREENE, MH</wos_standard>
+<first_name>MH</first_name>
+<last_name>GREENE</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Meeting Abstract</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>655 AVENUE OF THE AMERICAS, NEW YORK, NY 10010</full_address>
+<city>NEW YORK</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>ELSEVIER SCIENCE INC</display_name>
+<full_name>ELSEVIER SCIENCE INC</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">English</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Abstract</doctype>
+</normalized_doctypes>
+<references count="0"/>
+<addresses count="1">
+<address_name>
+<address_spec addr_no="1">
+<full_address>NCI,BETHESDA,MD 20205</full_address>
+<organizations count="3">
+<organization>NCI</organization>
+<organization pref="Y">NIH National Cancer Institute (NCI)</organization>
+<organization pref="Y">National Institutes of Health (NIH) - USA</organization>
+</organizations>
+<city>BETHESDA</city>
+<state>MD</state>
+<country>USA</country>
+<zip location="AP">20205</zip>
+</address_spec>
+</address_name>
+</addresses>
+<category_info>
+<headings count="1">
+<heading>Science &amp; Technology</heading>
+</headings>
+<subheadings count="1">
+<subheading>Life Sciences &amp; Biomedicine</subheading>
+</subheadings>
+<subjects count="6">
+<subject ascatype="traditional">Oncology</subject>
+<subject ascatype="traditional">Dermatology</subject>
+<subject ascatype="traditional">Surgery</subject>
+<subject ascatype="extended">Oncology</subject>
+<subject ascatype="extended">Dermatology</subject>
+<subject ascatype="extended">Surgery</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">ANQ50</ids>
+<bib_id>11 (8): 791-792 1985</bib_id>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="ANQ50"/>
+<identifier type="issn" value="0148-0812"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985AVS0800024</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SSCI"/>
+<edition value="WOS.SCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="6" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="34">
+<page begin="385" end="385" page_count="1">385-385</page>
+</pub_info>
+<titles count="6">
+<title type="source">NURSING RESEARCH</title>
+<title type="source_abbrev">NURS RES</title>
+<title type="abbrev_iso">Nurs. Res.</title>
+<title type="abbrev_11">NURS RES</title>
+<title type="abbrev_29">NURS RES</title>
+<title type="item">THEORETICAL-MODEL DEVELOPMENT - HEALTH BEHAVIOR IN CANCER PREVENTION</title>
+</titles>
+<names count="5">
+<name dais_id="205711" role="author" seq_no="1">
+<display_name>ATWOOD, JR</display_name>
+<full_name>ATWOOD, JR</full_name>
+<wos_standard>ATWOOD, JR</wos_standard>
+<last_name>ATWOOD</last_name>
+<suffix>JR</suffix>
+</name>
+<name role="author" seq_no="2">
+<display_name>HURD, PD</display_name>
+<full_name>HURD, PD</full_name>
+<wos_standard>HURD, PD</wos_standard>
+<first_name>PD</first_name>
+<last_name>HURD</last_name>
+</name>
+<name dais_id="8774289" role="author" seq_no="3">
+<display_name>SHEEHAN, ET</display_name>
+<full_name>SHEEHAN, ET</full_name>
+<wos_standard>SHEEHAN, ET</wos_standard>
+<first_name>ET</first_name>
+<last_name>SHEEHAN</last_name>
+</name>
+<name dais_id="5442843" role="author" seq_no="4">
+<display_name>HO, EE</display_name>
+<full_name>HO, EE</full_name>
+<wos_standard>HO, EE</wos_standard>
+<first_name>EE</first_name>
+<last_name>HO</last_name>
+</name>
+<name role="author" seq_no="5">
+<display_name>SIEVERS, JA</display_name>
+<full_name>SIEVERS, JA</full_name>
+<wos_standard>SIEVERS, JA</wos_standard>
+<first_name>JA</first_name>
+<last_name>SIEVERS</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Meeting Abstract</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>555 W 57TH ST, NEW YORK, NY 10019-2961</full_address>
+<city>NEW YORK</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>AMER J NURSING CO</display_name>
+<full_name>AMER J NURSING CO</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">English</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Abstract</doctype>
+</normalized_doctypes>
+<references count="0"/>
+<addresses count="1">
+<address_name>
+<address_spec addr_no="1">
+<full_address>UNIV ARIZONA,COLL NURSING,TUCSON,AZ 85721</full_address>
+<organizations count="2">
+<organization>UNIV ARIZONA</organization>
+<organization pref="Y">University of Arizona</organization>
+</organizations>
+<street>COLL NURSING</street>
+<city>TUCSON</city>
+<state>AZ</state>
+<country>USA</country>
+<zip location="AP">85721</zip>
+</address_spec>
+</address_name>
+</addresses>
+<category_info>
+<headings count="1">
+<heading>Science &amp; Technology</heading>
+</headings>
+<subheadings count="1">
+<subheading>Life Sciences &amp; Biomedicine</subheading>
+</subheadings>
+<subjects count="2">
+<subject ascatype="traditional">Nursing</subject>
+<subject ascatype="extended">Nursing</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">AVS08</ids>
+<bib_id>34 (6): 385-385 1985</bib_id>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="AVS08"/>
+<identifier type="issn" value="0029-6562"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985ATR8800021</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SSCI"/>
+<edition value="WOS.AHCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="4" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="89">
+<page begin="700" end="701" page_count="2">700-701</page>
+</pub_info>
+<titles count="6">
+<title type="source">AMERICAN JOURNAL OF ARCHAEOLOGY</title>
+<title type="source_abbrev">AM J ARCHAEOL</title>
+<title type="abbrev_iso">Am. J. Archaeol.</title>
+<title type="abbrev_11">AM J ARCHAE</title>
+<title type="abbrev_29">AMER J ARCHAEOL</title>
+<title type="item">THE RAPE OF PERSEPHONE IN ANCIENT-ART - GERMAN - LINDNER,R</title>
+</titles>
+<names count="1">
+<name reprint="Y" role="author" seq_no="1">
+<display_name>OAKLEY, JH</display_name>
+<full_name>OAKLEY, JH</full_name>
+<wos_standard>OAKLEY, JH</wos_standard>
+<first_name>JH</first_name>
+<last_name>OAKLEY</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Book Review</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>135 WILLIAM ST, NEW YORK, NY 10038-3805</full_address>
+<city>NEW YORK</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>ARCHAEOLOGICAL INST</display_name>
+<full_name>ARCHAEOLOGICAL INST</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">English</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Review</doctype>
+</normalized_doctypes>
+<references count="1">
+<reference>
+<uid>WOS:A1985ATR8800021.1</uid>
+<citedAuthor>LINDNER R</citedAuthor>
+<year>1984</year>
+<citedWork>RAPE PERSEPHONE ANCI</citedWork>
+</reference>
+</references>
+<addresses count="0"/>
+<category_info>
+<headings count="1">
+<heading>Social Sciences</heading>
+</headings>
+<subjects count="2">
+<subject ascatype="traditional">Archaeology</subject>
+<subject ascatype="extended">Archaeology</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">ATR88</ids>
+<bib_id>89 (4): 700-701 1985</bib_id>
+<reprint_contact>
+<address_spec addr_no="1">
+<full_address>COLL WILLIAM &amp; MARY,DEPT CLASS STUDIES,WILLIAMSBURG,VA 23185, USA</full_address>
+<organizations count="2">
+<organization>COLL WILLIAM &amp; MARY</organization>
+<organization pref="Y">College William &amp; Mary</organization>
+</organizations>
+<street>DEPT CLASS STUDIES</street>
+<city>WILLIAMSBURG</city>
+<state>VA</state>
+<country>USA</country>
+<zip location="AP">23185</zip>
+</address_spec>
+<names count="1">
+<name addr_no="1" reprint="Y" role="author" seq_no="1">
+<display_name>OAKLEY, JH</display_name>
+<full_name>OAKLEY, JH</full_name>
+<wos_standard>OAKLEY, JH</wos_standard>
+<first_name>JH</first_name>
+<last_name>OAKLEY</last_name>
+</name>
+</names>
+</reprint_contact>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="ATR88"/>
+<identifier type="issn" value="0002-9114"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985AJV1200030</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="5" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="65">
+<page begin="670" end="670" page_count="1">670-670</page>
+</pub_info>
+<titles count="6">
+<title type="source">PHYSICAL THERAPY</title>
+<title type="source_abbrev">PHYS THER</title>
+<title type="abbrev_iso">Phys. Ther.</title>
+<title type="abbrev_11">PHYS THER</title>
+<title type="abbrev_29">PHYS THER</title>
+<title type="item">EFFECTS OF LOW-POWER LASER ON CONTRALATERAL BURNING PAIN THRESHOLD</title>
+</titles>
+<names count="2">
+<name role="author" seq_no="1">
+<display_name>HATCH, WE</display_name>
+<full_name>HATCH, WE</full_name>
+<wos_standard>HATCH, WE</wos_standard>
+<first_name>WE</first_name>
+<last_name>HATCH</last_name>
+</name>
+<name role="author" seq_no="2">
+<display_name>GOULD, WR</display_name>
+<full_name>GOULD, WR</full_name>
+<wos_standard>GOULD, WR</wos_standard>
+<first_name>WR</first_name>
+<last_name>GOULD</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Meeting Abstract</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>1111 N FAIRFAX ST, ALEXANDRIA, VA 22314</full_address>
+<city>ALEXANDRIA</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>AMER PHYS THER ASSN</display_name>
+<full_name>AMER PHYS THER ASSN</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">English</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Abstract</doctype>
+</normalized_doctypes>
+<references count="0"/>
+<addresses count="1">
+<address_name>
+<address_spec addr_no="1">
+<full_address>TEXAS WOMANS UNIV,HOUSTON,TX 77030</full_address>
+<organizations count="2">
+<organization>TEXAS WOMANS UNIV</organization>
+<organization pref="Y">Texas Womans University</organization>
+</organizations>
+<city>HOUSTON</city>
+<state>TX</state>
+<country>USA</country>
+<zip location="AP">77030</zip>
+</address_spec>
+</address_name>
+</addresses>
+<category_info>
+<headings count="1">
+<heading>Science &amp; Technology</heading>
+</headings>
+<subheadings count="1">
+<subheading>Life Sciences &amp; Biomedicine</subheading>
+</subheadings>
+<subjects count="4">
+<subject ascatype="traditional">Orthopedics</subject>
+<subject ascatype="traditional">Rehabilitation</subject>
+<subject ascatype="extended">Orthopedics</subject>
+<subject ascatype="extended">Rehabilitation</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">AJV12</ids>
+<bib_id>65 (5): 670-670 1985</bib_id>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="AJV12"/>
+<identifier type="issn" value="0031-9023"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985AJT2000013</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="4" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="113">
+<page begin="355" end="363" page_count="9">355-363</page>
+</pub_info>
+<titles count="6">
+<title type="source">REVISTA MEDICA DE CHILE</title>
+<title type="source_abbrev">REV MED CHILE</title>
+<title type="abbrev_iso">Rev. Medica Chile</title>
+<title type="abbrev_11">REV MED CHI</title>
+<title type="abbrev_29">REV MED CHILE</title>
+<title type="item">ANALYSIS OF A TEACHING MODEL WITH AMBULATORY ADULT PATIENTS</title>
+</titles>
+<names count="11">
+<name dais_id="15040121" reprint="Y" role="author" seq_no="1">
+<display_name>ZAPATA, C</display_name>
+<full_name>ZAPATA, C</full_name>
+<wos_standard>ZAPATA, C</wos_standard>
+<first_name>C</first_name>
+<last_name>ZAPATA</last_name>
+</name>
+<name dais_id="14055285" role="author" seq_no="2">
+<display_name>SALDIAS, F</display_name>
+<full_name>SALDIAS, F</full_name>
+<wos_standard>SALDIAS, F</wos_standard>
+<first_name>F</first_name>
+<last_name>SALDIAS</last_name>
+</name>
+<name dais_id="5695591" role="author" seq_no="3">
+<display_name>JIMENEZ, P</display_name>
+<full_name>JIMENEZ, P</full_name>
+<wos_standard>JIMENEZ, P</wos_standard>
+<first_name>P</first_name>
+<last_name>JIMENEZ</last_name>
+</name>
+<name dais_id="10446719" role="author" seq_no="4">
+<display_name>BERTOGLIO, JC</display_name>
+<full_name>BERTOGLIO, JC</full_name>
+<wos_standard>BERTOGLIO, JC</wos_standard>
+<first_name>JC</first_name>
+<last_name>BERTOGLIO</last_name>
+</name>
+<name dais_id="13752924" role="author" seq_no="5">
+<display_name>MEZZANO, S</display_name>
+<full_name>MEZZANO, S</full_name>
+<wos_standard>MEZZANO, S</wos_standard>
+<first_name>S</first_name>
+<last_name>MEZZANO</last_name>
+</name>
+<name dais_id="14028075" role="author" seq_no="6">
+<display_name>SAGARDIA, M</display_name>
+<full_name>SAGARDIA, M</full_name>
+<wos_standard>SAGARDIA, M</wos_standard>
+<first_name>M</first_name>
+<last_name>SAGARDIA</last_name>
+</name>
+<name dais_id="13122361" role="author" seq_no="7">
+<display_name>PENA, E</display_name>
+<full_name>PENA, E</full_name>
+<wos_standard>PENA, E</wos_standard>
+<first_name>E</first_name>
+<last_name>PENA</last_name>
+</name>
+<name dais_id="11550061" role="author" seq_no="8">
+<display_name>FRICK, P</display_name>
+<full_name>FRICK, P</full_name>
+<wos_standard>FRICK, P</wos_standard>
+<first_name>P</first_name>
+<last_name>FRICK</last_name>
+</name>
+<name role="author" seq_no="9">
+<display_name>BARRIA, L</display_name>
+<full_name>BARRIA, L</full_name>
+<wos_standard>BARRIA, L</wos_standard>
+<first_name>L</first_name>
+<last_name>BARRIA</last_name>
+</name>
+<name dais_id="12350522" role="author" seq_no="10">
+<display_name>KUNSTMANN, G</display_name>
+<full_name>KUNSTMANN, G</full_name>
+<wos_standard>KUNSTMANN, G</wos_standard>
+<first_name>G</first_name>
+<last_name>KUNSTMANN</last_name>
+</name>
+<name role="author" seq_no="11">
+<display_name>CRITOFFANINI, A</display_name>
+<full_name>CRITOFFANINI, A</full_name>
+<wos_standard>CRITOFFANINI, A</wos_standard>
+<first_name>A</first_name>
+<last_name>CRITOFFANINI</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Article</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>BERNARDA MORIN 488 PROVIDENCIA, CASILLA 168 CORREO 55, SANTIAGO 9, CHILE</full_address>
+<city>SANTIAGO 9</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>SOC MEDICA SANTIAGO</display_name>
+<full_name>SOC MEDICA SANTIAGO</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">Spanish</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">Spanish</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Article</doctype>
+</normalized_doctypes>
+<references count="9">
+<reference>
+<uid>WOS:A1982NK03600008</uid>
+<citedAuthor>MEDLEY, ES</citedAuthor>
+<year>1982</year>
+<page>322</page>
+<volume>57</volume>
+<citedTitle>TEACHING IN THE AMBULATORY CARE SETTING</citedTitle>
+<citedWork>JOURNAL OF MEDICAL EDUCATION</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1982NA87800023</uid>
+<citedAuthor>FRIEDMAN, RH</citedAuthor>
+<year>1982</year>
+<page>233</page>
+<volume>96</volume>
+<citedTitle>GENERAL INTERNAL MEDICINE UNITS IN ACADEMIC MEDICAL-CENTERS - THEIR EMERGENCE AND FUNCTIONS</citedTitle>
+<citedWork>ANNALS OF INTERNAL MEDICINE</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1979HQ51200012</uid>
+<citedAuthor>GOIC, A</citedAuthor>
+<year>1979</year>
+<page>643</page>
+<volume>107</volume>
+<citedTitle>STRATEGY FOR THE STRENGTHENING OF INTERNAL MEDICINE</citedTitle>
+<citedWork>REVISTA MEDICA DE CHILE</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1982NA87800024</uid>
+<citedAuthor>TARLOV, AR</citedAuthor>
+<year>1982</year>
+<page>239</page>
+<volume>96</volume>
+<citedTitle>ACADEMIC GENERAL INTERNAL MEDICINE</citedTitle>
+<citedWork>ANNALS OF INTERNAL MEDICINE</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1980KP91300008</uid>
+<citedAuthor>GOODSON, JD</citedAuthor>
+<year>1980</year>
+<page>950</page>
+<volume>55</volume>
+<citedTitle>PRIMARY CARE TRAINING IN A TRADITIONAL MEDICAL RESIDENCY - AN AMBULATORY CARE ROTATION</citedTitle>
+<citedWork>JOURNAL OF MEDICAL EDUCATION</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1981LP13800002</uid>
+<citedAuthor>KARPF, M</citedAuthor>
+<year>1981</year>
+<page>390</page>
+<volume>56</volume>
+<citedTitle>DEVELOPMENT OF A DIVISION OF GENERAL MEDICINE IN A DEPARTMENT OF INTERNAL MEDICINE</citedTitle>
+<citedWork>JOURNAL OF MEDICAL EDUCATION</citedWork>
+</reference>
+<reference>
+<uid>MEDLINE:7049664</uid>
+<citedAuthor>Cristoffanini, A P</citedAuthor>
+<year>1982</year>
+<page>134</page>
+<volume>16</volume>
+<citedTitle>[Internship in medical studies].</citedTitle>
+<citedWork>Educacion medica y salud</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1985AJT2000013.3</uid>
+<citedAuthor>DONOSO AI</citedAuthor>
+<year>1984</year>
+<citedWork>SEMINARIO TENDENCIAS</citedWork>
+</reference>
+<reference>
+<uid>WOS:A1985AJT2000013.1</uid>
+<year>1963</year>
+<citedWork>3 C FAC LAT MED ANT</citedWork>
+</reference>
+</references>
+<addresses count="1">
+<address_name>
+<address_spec addr_no="1">
+<full_address>HOSP CLIN REG VALDIVIA, INST HEMATOL &amp; MED, SERV MED INTERNA, VALDIVIA, CHILE</full_address>
+<organizations count="1">
+<organization>HOSP CLIN REG VALDIVIA</organization>
+</organizations>
+<suborganizations count="1">
+<suborganization>INST HEMATOL &amp; MED, SERV MED INTERNA</suborganization>
+</suborganizations>
+<city>VALDIVIA</city>
+<country>CHILE</country>
+</address_spec>
+</address_name>
+</addresses>
+<category_info>
+<headings count="1">
+<heading>Science &amp; Technology</heading>
+</headings>
+<subheadings count="1">
+<subheading>Life Sciences &amp; Biomedicine</subheading>
+</subheadings>
+<subjects count="2">
+<subject ascatype="traditional">Medicine, General &amp; Internal</subject>
+<subject ascatype="extended">General &amp; Internal Medicine</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">AJT20</ids>
+<bib_id>113 (4): 355-363 1985</bib_id>
+<reprint_contact>
+<address_spec addr_no="1">
+<full_address>UNIV AUSTRAL CHILE, OFICINA MED EDUC, INST HEMATOL, VALDIVIA, CHILE</full_address>
+<organizations count="2">
+<organization>UNIV AUSTRAL CHILE</organization>
+<organization pref="Y">Universidad Austral de Chile</organization>
+</organizations>
+<suborganizations count="1">
+<suborganization>OFICINA MED EDUC</suborganization>
+</suborganizations>
+<street>INST HEMATOL</street>
+<city>VALDIVIA</city>
+<country>CHILE</country>
+</address_spec>
+<names count="1">
+<name addr_no="1" dais_id="15040121" display="N" reprint="Y" role="author" seq_no="1">
+<display_name>ZAPATA, C</display_name>
+<full_name>ZAPATA, C</full_name>
+<wos_standard>ZAPATA, C</wos_standard>
+<first_name>C</first_name>
+<last_name>ZAPATA</last_name>
+</name>
+</names>
+</reprint_contact>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="AJT20"/>
+<identifier type="issn" value="0034-9887"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985ACZ7102008</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="5" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="44">
+<page begin="1695" end="1695" page_count="1">1695-1695</page>
+</pub_info>
+<titles count="5">
+<title type="source">FEDERATION PROCEEDINGS</title>
+<title type="source_abbrev">FED PROC</title>
+<title type="abbrev_11">FED PROC</title>
+<title type="abbrev_29">FED PROC</title>
+<title type="item">DIFFERENT HELPER FUNCTIONS MEDIATED BY COLLAGEN-SPECIFIC T-CELL LINES</title>
+</titles>
+<names count="3">
+<name role="author" seq_no="1">
+<display_name>HOM, JT</display_name>
+<full_name>HOM, JT</full_name>
+<wos_standard>HOM, JT</wos_standard>
+<first_name>JT</first_name>
+<last_name>HOM</last_name>
+</name>
+<name dais_id="14105226" role="author" seq_no="2">
+<display_name>TOVEY, JA</display_name>
+<full_name>TOVEY, JA</full_name>
+<wos_standard>TOVEY, JA</wos_standard>
+<first_name>JA</first_name>
+<last_name>TOVEY</last_name>
+</name>
+<name dais_id="10735712" role="author" seq_no="3">
+<display_name>CHILLER, JM</display_name>
+<full_name>CHILLER, JM</full_name>
+<wos_standard>CHILLER, JM</wos_standard>
+<first_name>JM</first_name>
+<last_name>CHILLER</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Meeting Abstract</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>9650 ROCKVILLE PIKE, BETHESDA, MD 20814-3998</full_address>
+<city>BETHESDA</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>FEDERATION AMER SOC EXP BIOL</display_name>
+<full_name>FEDERATION AMER SOC EXP BIOL</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">English</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Abstract</doctype>
+</normalized_doctypes>
+<references count="0"/>
+<addresses count="1">
+<address_name>
+<address_spec addr_no="1">
+<full_address>LILLY RES LABS,LA JOLLA,CA 92037</full_address>
+<organizations count="3">
+<organization>LILLY RES LABS</organization>
+<organization pref="Y">Eli Lilly &amp; Company</organization>
+<organization pref="Y">Lilly Research Laboratories</organization>
+</organizations>
+<city>LA JOLLA</city>
+<state>CA</state>
+<country>USA</country>
+<zip location="AP">92037</zip>
+</address_spec>
+</address_name>
+</addresses>
+<category_info>
+<headings count="1">
+<heading>Science &amp; Technology</heading>
+</headings>
+<subheadings count="1">
+<subheading>Life Sciences &amp; Biomedicine</subheading>
+</subheadings>
+<subjects count="2">
+<subject ascatype="traditional">Biology</subject>
+<subject ascatype="extended">Life Sciences &amp; Biomedicine - Other Topics</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">ACZ71</ids>
+<bib_id>44 (5): 1695-1695 1985</bib_id>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="ACZ71"/>
+<identifier type="issn" value="0014-9446"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985AQG7200005</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.SSCI"/>
+<edition value="WOS.SCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="3" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="10">
+<page begin="206" end="207" page_count="2">206-207</page>
+</pub_info>
+<titles count="6">
+<title type="source">INTERDISCIPLINARY SCIENCE REVIEWS</title>
+<title type="source_abbrev">INTERDISCIPL SCI REV</title>
+<title type="abbrev_iso">Interdiscip. Sci. Rev.</title>
+<title type="abbrev_11">INTERD SCI</title>
+<title type="abbrev_29">INTERDISCIPLIN SCI REV</title>
+<title type="item">FOOD AND THE THIRD-WORLD</title>
+</titles>
+<names count="1">
+<name reprint="Y" role="author" seq_no="1">
+<display_name>VLITOS, AJ</display_name>
+<full_name>VLITOS, AJ</full_name>
+<wos_standard>VLITOS, AJ</wos_standard>
+<first_name>AJ</first_name>
+<last_name>VLITOS</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Editorial Material</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>1 CARLTON HOUSE TERRACE, LONDON, ENGLAND SW1Y 5DB</full_address>
+<city>LONDON</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>INST MATERIALS</display_name>
+<full_name>INST MATERIALS</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
+</languages>
+<normalized_languages count="1">
+<language type="primary">English</language>
+</normalized_languages>
+<normalized_doctypes count="1">
+<doctype>Editorial</doctype>
+</normalized_doctypes>
+<references count="0"/>
+<addresses count="0"/>
+<category_info>
+<headings count="2">
+<heading>Science &amp; Technology</heading>
+<heading>Social Sciences</heading>
+</headings>
+<subjects count="4">
+<subject ascatype="traditional">Multidisciplinary Sciences</subject>
+<subject ascatype="traditional">Social Sciences, Interdisciplinary</subject>
+<subject ascatype="extended">Science &amp; Technology - Other Topics</subject>
+<subject ascatype="extended">Social Sciences - Other Topics</subject>
+</subjects>
+</category_info>
+</fullrecord_metadata>
+<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="itemType_wos">
+<ids avail="Y">AQG72</ids>
+<bib_id>10 (3): 206-207 1985</bib_id>
+<reprint_contact>
+<address_spec addr_no="1">
+<full_address>WORLD SUGAR RES ORG,HAYMARKET,LONDON,ENGLAND</full_address>
+<organizations count="1">
+<organization>WORLD SUGAR RES ORG</organization>
+</organizations>
+<street>HAYMARKET</street>
+<city>LONDON</city>
+<country>ENGLAND</country>
+</address_spec>
+<names count="1">
+<name addr_no="1" reprint="Y" role="author" seq_no="1">
+<display_name>VLITOS, AJ</display_name>
+<full_name>VLITOS, AJ</full_name>
+<wos_standard>VLITOS, AJ</wos_standard>
+<first_name>AJ</first_name>
+<last_name>VLITOS</last_name>
+</name>
+</names>
+</reprint_contact>
+</item>
+</static_data>
+<dynamic_data>
+<cluster_related>
+<identifiers>
+<identifier type="accession_no" value="AQG72"/>
+<identifier type="issn" value="0308-0188"/>
+</identifiers>
+</cluster_related>
+</dynamic_data>
+</REC>
+
+<REC r_id_disclaimer="ResearcherID data provided by Thomson Reuters">
+<UID>WOS:A1985TX81500010</UID>
+<static_data>
+<summary>
+<EWUID>
+<WUID coll_id="WOS"/>
+<edition value="WOS.AHCI"/>
+</EWUID>
+<pub_info coverdate="1985" has_abstract="N" issue="4" pubtype="Journal" pubyear="1985" sortdate="1985-01-01" vol="145">
+<page begin="203" end="204" page_count="2">203-204</page>
+</pub_info>
+<titles count="6">
+<title type="source">POETRY</title>
+<title type="source_abbrev">POETRY</title>
+<title type="abbrev_iso">Poetry</title>
+<title type="abbrev_11">POETRY</title>
+<title type="abbrev_29">POETRY</title>
+<title type="item">'MORNING MISTS'</title>
+</titles>
+<names count="1">
+<name role="author" seq_no="1">
+<display_name>TRIVELPIECE, L</display_name>
+<full_name>TRIVELPIECE, L</full_name>
+<wos_standard>TRIVELPIECE, L</wos_standard>
+<first_name>L</first_name>
+<last_name>TRIVELPIECE</last_name>
+</name>
+</names>
+<doctypes count="1">
+<doctype>Poetry</doctype>
+</doctypes>
+<publishers>
+<publisher>
+<address_spec addr_no="1">
+<full_address>60 W WALTON ST, CHICAGO, IL 60610</full_address>
+<city>CHICAGO</city>
+</address_spec>
+<names count="1">
+<name addr_no="1" role="publisher" seq_no="1">
+<display_name>POETRY</display_name>
+<full_name>POETRY</full_name>
+</name>
+</names>
+</publisher>
+</publishers>
+</summary>
+<fullrecord_metadata>
+<languages count="1">
+<language type="primary">English</language>
