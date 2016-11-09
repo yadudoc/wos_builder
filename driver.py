@@ -14,6 +14,27 @@ log_levels = { "DEBUG"   : logging.DEBUG,
                "CRITICAL": logging.CRITICAL
 }
 
+publishers      = ['wos_id', # Primary key
+                   'display_name', 'full_name', 'full_address', 'city']
+
+publications    = ['wos_id', # Primary key 
+                   'accession_no', 'issn', 'eisbn', 'doi', # cluster_related
+                   'doc_type', 'title', 'pubyear', 'pubmonth', 'coverdate', 'pubday', 'issue',
+                   'vol', 'pubtype', 'medium', 'model',
+                   'supplement', 'special_issue', 'part_no',
+                   'indicator', 'is_archive', 'city', 'country', 'has_abstract', 'sortdate',
+                   'oases_type_gold',
+                   'abstract']
+
+contributors    = ['wos_id', 'position', #Primary key
+                   'reprint', 'cluster_id', 'role',
+                   'display_name', 'full_name', 'wos_standard',
+                   'first_name', 'last_name', 'email_addr']
+
+institutions    = ['wos_id']
+references      = ['wos_id']
+fundingTexts    = ['wos_id']
+funding         = ['wos_id', '']
 
 def main (sourcefile):
 
@@ -39,8 +60,15 @@ def main (sourcefile):
             publisher = x.extract_publisher(wos_id, REC)
             #print publisher
             authors   = x.extract_authors(wos_id, REC)
-            #print authors
+            ##print authors
             institutions = x.extract_addresses(wos_id, REC)
+
+            references = x.extract_references(wos_id, REC)
+            #if references :
+            #    print references[0]
+
+            ftext, funding = x.extract_funding(wos_id, REC)
+
     return
 
     

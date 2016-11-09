@@ -19,6 +19,19 @@ def load_data(datafile):
     context = iter(context)    
     return context
 
+# uid -> wos_id, citedAuthor, year , page, volume, citedTitle, citedWork, doi
+def extract_references(wos_id, elem):
+    references = []
+    for refs in list(elem.iterfind('./static_data/fullrecord_metadata/references/reference')):
+        #print sub.tag, sub.attrib, sub.text
+        cur = {}
+        #print "-"*50
+        for ref in refs.iter():
+            #print ref.tag, ref.text
+            cur[str(ref.tag)] = ref.text
+            references.extend([cur])
+        
+    return references
 
 def extract_editions(wos_id, elem):
     return [{'wos_id':wos_id,
@@ -54,11 +67,9 @@ def extract_publisher(wos_id, elem):
 
 def extract_addresses(wos_id, elem):
     addresslist = []
-    print wos_id
     for addresses in elem.iterfind('./static_data/fullrecord_metadata/addresses/address_name'):
         
-        print "-"*50
-        
+        #print "-"*50        
         addr = {'wos_id'   : wos_id,
                 'addr_num' : list(addresses.iterfind('./address_spec'))[0].attrib['addr_no'],
                 'organization' : 'NULL'
@@ -124,6 +135,89 @@ def extract_publisher(wos_id, elem):
                 return publisher
 
 
+
+def extract_conferences(wos_id, elem):
+    conference = {'wos_id' : wos_id}
+    sponsors   = []
+
+    for conf in list(elem.iterfind('./static_data/summary/conferences/conference')):
+        # Do try catch on each of these
+        print conf
+        conference['conf_id'] = conf.attrib.get('conf_id', 'NULL')
+        print conference
+        try :
+            conference['info']  = list(conf.iterfind('./conf_infos/conf_info'))[0].text
+        except Exception as e:
+            conference['info'] = 'NULL'
+        try :
+            conference['title'] = list(conf.iterfind('./conf_titles/conf_title'))[0].text
+        except Exception as e:
+            conference['title'] = 'NULL'
+        try :
+            conference['dates'] = list(conf.iterfind('./conf_dates/conf_dates'))[0].text
+        except Exception as e:
+            conference['dates'] = 'NULL'
+        try :
+            conference.update(list(conf.iterfind('./conf_dates/conf_date'))[0].attrib)
+        except Exception as e:
+            pass
+        try :
+            conference['conf_city']  = list(conf.iterfind('./conf_locations/conf_location/conf_city'))[0].text
+        except Exception as e:
+            conference['conf_city']  = 'NULL'
+        try :
+            conference['conf_state'] = list(conf.iterfind('./conf_locations/conf_location/conf_state'))[0].text
+        except Exception as e:
+            conference['conf_state'] = 'NULL'
+        try :
+            conference['conf_host']  = list(conf.iterfind('./conf_locations/conf_location/conf_host'))[0].text
+        except Exception as e:
+            conference['conf_host']  = 'NULL'
+            
+        for sponsor in list(conf.iterfind('./sponsors/sponsor')):
+            print "Sponsor {0}/{1}: {2}".format(wos_id, conference['conf_id'], sponsor.text)
+            sponsors.extend([{'wos_id' : wos_id,
+                              'conf_id' : conference['conf_id'],
+                              'sponsor' : sponsor.text}])
+            
+            
+    #print conference
+    #print sponsors
+    return conference, sponsors
+
+            
+def extract_funding(wos_id, elem):
+    funding = []
+    text = 'NULL'
+    for t in list(elem.iterfind('./static_data/fullrecord_metadata/fund_ack/fund_text')):
+        for para in t.iter():
+            #print para.tag, para.text
+            if text == 'NULL':
+                text = ''            
+            text = text + str(para.text) + '\n'
+            
+    for g in list(elem.iterfind('./static_data/fullrecord_metadata/fund_ack/grants/grant')):
+        grant_agency = None
+        for agency in g.iterfind('./grant_agency') :
+            grant_agency = agency.text
+            #print "AGENCY: ", grant_agency
+
+        grant_id_list = []
+        for grant_id in g.iterfind('./grant_ids/grant_id') :            
+            #print "TAG: ", grant_id.tag, grant_id.text
+            grant_id_list.extend([str(grant_id.text)])
+        
+        if not grant_id_list :
+            grant_id_list = ['NULL']
+
+        for g in grant_id_list :
+            #print "Grant id : ", g
+            funding.extend([{'agency'   : grant_agency,
+                             'grant_id' : g}])
+            
+    return {'wos_id' : wos_id,
+            'funding_text' : text}, funding
+                                                                                                                    
 def extract_pub_info(wos_id, elem):
     pub = {'wos_id': wos_id}
 
@@ -133,13 +227,10 @@ def extract_pub_info(wos_id, elem):
         #print elem.find('./static_data/summary/pub_info')
     except Exception as e:
         print "Caught error {0}".format(e)
-        print list(elem.find('pub_info'))
-        print pub
+        #print list(elem.find('pub_info'))
+        #print pub
         logging.error("{0} Could not capture pub_info, Skipping document.".format(wos_id))
         raise 
-
-    # Add the publication info    
-    #pub.update(list(elem.iterfind('./static_data/summary/pub_info'))[0].attrib)
     
     # Get title, source, and source abbreviations   
     for i in elem.iterfind('./static_data/summary/titles/title'):
@@ -159,7 +250,7 @@ def extract_pub_info(wos_id, elem):
 
     # Oases gold    
     for item in list(elem.iterfind('./dynamic_data/ic_related/oases/oas')):
-        print item.tag, item.attrib, item.text
+        #print item.tag, item.attrib, item.text
         if item.text == 'Yes' and item.attrib['type'] == 'gold':
             pub['oases_type_gold'] = 'Yes'
 
@@ -187,7 +278,29 @@ def extract_pub_info(wos_id, elem):
         subjects.extend([{'wos_id': wos_id,
                           'ascatype' : sub.attrib['ascatype'],
                           'subjects': sub.text }])
-        
+
+
+    for item in list(elem.iterfind('./dynamic_data/cluster_related/identifiers/identifier')):
+        #print item.tag, item.attrib, item.text
+        pub[item.attrib['type']] = item.attrib['value']
+    #print pub
+
+    # Find the oases type gold status
+    for item in list(elem.iterfind('./dynamic_data/ic_related/oases/oas')):
+        print item.tag, item.attrib, item.text
+        if item.text == 'Yes' and item.attrib['type'] == 'gold':
+            pub['oases_type_gold'] = 'Yes'
+            #print "Gold = Yes"
+
+    # Add the abstract
+    abstract_text = 'NULL'
+    for ab in list(elem.iterfind('./static_data/fullrecord_metadata/abstracts/abstract/abstract_text/p')):
+        if abstract_text == 'NULL':
+            abstract_text = ''
+        abstract_text = abstract_text + '\n<p>' + ab.text + '</p>'
+    pub['abstract_text'] = abstract_text
+            
+         
     return pub
 
 
