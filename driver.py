@@ -34,10 +34,13 @@ def main (sourcefile):
     Fund_list = []
     Keyw_list = []
     Keyp_list = []
-
+    Conf_list = []
+    CoSp_list = []
+    
     with open(args.sourcefile, 'r') as data:
 
         while True:
+        
             count  += 1
             record  = rr.get_record(data)
             
@@ -56,7 +59,7 @@ def main (sourcefile):
             Head_list.extend(Headings)
             Subh_list.extend(Subheadings)
             Subj_list.extend(Subjects)
-
+            
             #print pub
             Publishers = x.extract_publisher(wos_id, REC)
             Publ_list.extend(Publishers)
@@ -85,28 +88,36 @@ def main (sourcefile):
             Ftext, Funding = x.extract_funding(wos_id, REC)
             Ftxt_list.extend(Ftext)
             Fund_list.extend(Funding)
-            #print len(Ftxt_list), Ftext
-
+            
+            Conf, Sponsor  = x.extract_conferences(wos_id, REC)
+            Conf_list.extend(Conf)
+            CoSp_list.extend(Sponsor)
+            #print len(Conf_list), Conf
+            #print len(CoSp_list), Sponsor
             
             Keywords, Keywords_plus = x.extract_keywords(wos_id, REC)
             Keyw_list.extend(Keywords)
             Keyp_list.extend(Keywords_plus)
             #print Keywords
-            
 
-    print "Dumping results to .sql files"    
+    print "Dumping results to .sql files"
+    x.dump(Edit_list,    h_editions,       t_editions,         'editions',       'editions.sql')
+    x.dump(Ftxt_list,    h_fundingtexts,   t_fundingtexts,     'fundingtext',    'fundingtext.sql')
+    x.dump(Fund_list,    h_funding,        t_funding,          'funding',        'funding.sql')
     x.dump(Keyw_list,    h_keywords,       t_keywords,         'keywords',       'keywords.sql')
     x.dump(Keyp_list,    h_keywords_plus,  t_keywords_plus,    'keywords_plus',  'keywords_plus.sql')
-    '''
-    x.dump(Keyw_list, h_keywords, 'keywords', 'keywords.sql')
-    x.dump(Keyw_list, h_keywords, 'keywords', 'keywords.sql')
-    x.dump(Keyw_list, h_keywords, 'keywords', 'keywords.sql')
-    x.dump(Keyw_list, h_keywords, 'keywords', 'keywords.sql')
-    x.dump(Keyw_list, h_keywords, 'keywords', 'keywords.sql')
-    '''
-    #print t_publications.format('publication')
-    #print t_keywords.format('keywords')
-    #print t_keywords.format('keywords_plus')
+    x.dump(Conf_list,    h_conferences,    t_conferences,      'conferences',    'conferences.sql')
+    x.dump(CoSp_list,    h_conf_sponsors,  t_conf_sponsors,    'confSponsors',   'confSponsors.sql')
+    x.dump(Refs_list,    h_references,     t_references,       'refs',           'references.sql')
+    x.dump(Pubs_list,    h_publications,   t_publications,     'publications',   'publications.sql')
+    x.dump(Lang_list,    h_languages,      t_languages,        'languages',      'langauges.sql')
+    x.dump(Head_list,    h_headings,       t_headings,         'headings',       'headings.sql')
+    x.dump(Subh_list,    h_subheadings,    t_subheadings,      'subheadings',    'subheadings.sql')
+    x.dump(Subj_list,    h_subjects,       t_subjects,         'subjects',       'subjects.sql')
+    x.dump(Publ_list,    h_publishers,     t_publishers,       'publishers',     'publishers.sql')
+    x.dump(Auth_list,    h_contributors,   t_contributors,     'contributors',   'contributors.sql')
+    x.dump(Inst_list,    h_institutions,   t_institutions,     'institutions',   'institutions.sql')
+    x.dump(NaIn_list,    h_name_inst,      t_name_inst,        'affiliations',   'affiliations.sql')
 
     return
 

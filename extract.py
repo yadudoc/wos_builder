@@ -25,12 +25,12 @@ def extract_references(wos_id, elem):
     references = []
     for refs in list(elem.iterfind('./static_data/fullrecord_metadata/references/reference')):
         #print sub.tag, sub.attrib, sub.text
-        cur = {}
+        cur = {'wos_id' : wos_id}
         #print "-"*50
         for ref in refs.iter():
             #print ref.tag, ref.text
             cur[str(ref.tag)] = ref.text
-            references.extend([cur])
+        references.extend([cur])
         
     return references
 
@@ -120,14 +120,15 @@ def extract_publisher(wos_id, elem):
 
 
 def extract_conferences(wos_id, elem):
-    conference = {'wos_id' : wos_id}
+    conferences = []
     sponsors   = []
 
     for conf in list(elem.iterfind('./static_data/summary/conferences/conference')):
         # Do try catch on each of these
-        print conf
+        
+        conference = {'wos_id' : wos_id}        
         conference['conf_id'] = conf.attrib.get('conf_id', 'NULL')
-        print conference
+
         try :
             conference['info']  = list(conf.iterfind('./conf_infos/conf_info'))[0].text
         except Exception as e:
@@ -158,14 +159,15 @@ def extract_conferences(wos_id, elem):
             conference['conf_host']  = 'NULL'
             
         for sponsor in list(conf.iterfind('./sponsors/sponsor')):
-            print "Sponsor {0}/{1}: {2}".format(wos_id, conference['conf_id'], sponsor.text)
+            #print "Sponsor {0}/{1}: {2}".format(wos_id, conference['conf_id'], sponsor.text)
             sponsors.extend([{'wos_id' : wos_id,
                               'conf_id' : conference['conf_id'],
                               'sponsor' : sponsor.text}])
             
+        conferences.extend([conference])
     #print conference
     #print sponsors
-    return conference, sponsors
+    return conferences, sponsors
 
             
 def extract_funding(wos_id, elem):
@@ -194,11 +196,15 @@ def extract_funding(wos_id, elem):
 
         for g in grant_id_list :
             #print "Grant id : ", g
-            funding.extend([{'agency'   : grant_agency,
+            funding.extend([{'wos_id' : wos_id,
+                             'agency'   : grant_agency,
                              'grant_id' : g}])
-            
-    return [{'wos_id' : wos_id,
-            'funding_text' : text}], funding
+
+    fundingText = []
+    if text != 'NULL':
+        fundingText = [{'wos_id' : wos_id,
+                        'funding_text' : text}]
+    return fundingText, funding
                                                                                                                     
 def extract_pub_info(wos_id, elem):
     pub = {'wos_id': wos_id}
@@ -252,9 +258,9 @@ def extract_pub_info(wos_id, elem):
     subjects = []
     for sub in list(elem.iterfind('./static_data/fullrecord_metadata/category_info/subjects/subject')):
         #print sub.tag, sub.attrib, sub.text
-        subjects.extend([{'wos_id': wos_id,
+        subjects.extend([{'wos_id'   : wos_id,
                           'ascatype' : sub.attrib['ascatype'],
-                          'subjects': sub.text }])
+                          'subject'  : sub.text }])
 
 
     for item in list(elem.iterfind('./dynamic_data/cluster_related/identifiers/identifier')):
@@ -299,7 +305,8 @@ def extract_keywords(wos_id, elem):
 
 
 def dump(data, header, sql_header, table_name, file_name):
-    
+
+    print  "Writing out {0} to {1}".format(table_name, file_name)
     with open(file_name, 'w') as f_handle:
         
         f_handle.write(sql_header.format(table_name))
@@ -310,14 +317,8 @@ def dump(data, header, sql_header, table_name, file_name):
 
         for row in data :
             f_handle.write('\n(')
-
-            f_handle.write(','.join(['\''+row.get(attr, 'NULL')+'\'' for attr in header]))
-            #for attr in header:
-            #    f_handle.write('\'' + row.get(attr, 'NULL') + '\', ')
-                #print [row.get(attr, 'NULL') for attr in header]
-            #f_handle.write(['\''+row.get(attr, 'NULL')+'\'' for attr in header].join(','))
+            f_handle.write(','.join([json.dumps(row.get(attr, 'NULL')) for attr in header]))
             f_handle.write('),')            
-
 
         f_handle.seek(-1, 1)
         f_handle.write(';\n')

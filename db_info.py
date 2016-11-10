@@ -7,13 +7,17 @@ t_publishers      = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id varchar(40) PRIMARY KEY,
-    display_name varchar(100),
-    full_name    varchar(100),
-    full_address varchar(100),
+    display_name varchar(200),
+    full_name    varchar(200),
+    full_address varchar(200),
     city         varchar(50)
-)
+);
 """
 
+
+print "*"*50
+print "WARNING , Publication abstract is disabled"
+print "*"*50
 
 h_publications    = ['wos_id', # Primary key 
                      'accession_no', 'issn', 'eissn', 'doi', # cluster_related
@@ -21,38 +25,39 @@ h_publications    = ['wos_id', # Primary key
                      'vol', 'pubtype','issue',
                      'supplement', 'special_issue', 'part_no',
                      'indicator', 'is_archive', 'city', 'country',
-                     'oases_type_gold', 'has_abstract',
-                     'abstract']
+                     'oases_type_gold', 'has_abstract' ]
+                     #'abstract']
 t_publications    = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
-    wos_id varchar(40) PRIMARY KEY,
+    wos_id          varchar(40) PRIMARY KEY,
 
-    accession_no varchar(10),
-    issn         varchar(20),
-    eissn        varchar(20),
-    doi          varchar(20),
+    accession_no    varchar(10),
+    issn            varchar(20),
+    eissn           varchar(20),
+    doi             varchar(50),
     
-    doctype      varchar(20),
-    title        varchar(100),
-    pubyear      varchar(4),
-    pubmonth     varchar(10),
-    coverdate    varchar(15), 
-    sortdate     varchar(15),
+    doc_type        varchar(20),
+    title           varchar(100),
+    pubyear         varchar(4),
+    pubmonth        varchar(10),
+    coverdate       varchar(15), 
+    sortdate        varchar(15),
 
-    vol          varchar(5),
-    pubtype      varchar(15),
-    issue        varchar(5),
-    supplement   varchar(5),
-    special_issue varchar(5),
-    part_no      varchar(5),
-    indicator    varchar(5),
-    is_archive   varchar(2),
-    city         varchar(20),
-    country      varchar(20),
-    has_abstract varchar(2),
-    abstract     varchar(3000)
-)
+    vol             varchar(5),
+    pubtype         varchar(15),
+    issue           varchar(5),
+    supplement      varchar(5),
+    special_issue   varchar(5),
+    part_no         varchar(5),
+    indicator       varchar(5),
+    is_archive      varchar(5),
+    city            varchar(20),
+    country         varchar(20),
+    has_abstract    varchar(5),
+    oases_type_gold varchar(5),
+    abstract        varchar(3000) DEFAULT NULL
+);
 """
 
 
@@ -62,7 +67,7 @@ DROP TABLE IF EXISTS {0};
 CREATE TABLE {0} ( 
     wos_id varchar(40),
     edition varchar(20)
-)
+);
 """
 
 h_contributors    = ['wos_id', 'position', #Primary key
@@ -73,8 +78,8 @@ t_contributors    = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id       varchar(40),
-    position     varchar(2),
-    reprint      varchar(2),
+    position     varchar(5),
+    reprint      varchar(5),
     cluster_id   varchar(10),
     role         varchar(10),
     orcid_id     varchar(15),
@@ -86,7 +91,7 @@ CREATE TABLE {0} (
     last_name    varchar(50),
     email_addr   varchar(50),
     PRIMARY KEY (wos_id, position)
-)
+);
 """
 
 
@@ -96,39 +101,56 @@ h_institutions    = ['wos_id', 'addr_num', # Duplication in org and suborg preve
 t_institutions    = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
-    wos_id varchar(40),
-    keyword varchar(50)
-)
+    wos_id           varchar(40),
+    addr_num         varchar(5),
+    organization     varchar(200),
+    suborganization  varchar(200),
+    full_address     varchar(200),
+    city             varchar(50),
+    state            varchar(50),
+    country          varchar(50),
+    zip              varchar(20)
+);
 """
 
 h_name_inst       = ['wos_id', 'position', 'addr_num']
 t_name_inst       = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
-    wos_id varchar(40),
-    keyword varchar(50)
-)
+    wos_id           varchar(40),
+    position         varchar(5),
+    addr_num         varchar(5)
+);
 """
 
 h_references      = ['wos_id', 'uid', # Primary key
-                   'citedAuthor', 'year', 'page', 'volume', 'citedTitle',
-                   'citedWork', 'doi', 'art_no', 'patent_no']
+                     'citedAuthor', 'year', 'page', 'volume', 'citedTitle',
+                     'citedWork', 'doi', 'art_no', 'patent_no']
 t_references      = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id varchar(40),
-    keyword varchar(50)
-)
+    uid varchar(50),
+    citedAuthor varchar(100),
+    year   varchar(10),
+    page   varchar(5),
+    volume varchar(5),
+    citedTitle varchar(500),
+    citedWork  varchar(100),
+    doi        varchar(50),
+    art_no     varchar(20),
+    patent_no  varchar(20)
+);
 """
 
 h_fundingtexts    = ['wos_id', # Primary key
-                   'funding_text']
+                     'funding_text']
 t_fundingtexts    = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id varchar(40),
-    keyword varchar(50)
-)
+    funding_text varchar(1000)
+);
 """
 
 
@@ -137,30 +159,9 @@ t_funding         = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id varchar(40),
-    keyword varchar(50)
-)
-"""
-
-
-h_conference      = ['wos_id', 'conf_id', # Primary key
-                     'info', 'title', 'dates', 'conf_city', 'conf_state', 'conf_host']
-t_conference      = """
-DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
-    wos_id varchar(40),
-    keyword varchar(50)
-)
-"""
-
-
-h_sponsors        = ['wos_id', 'conf_id', 'sponsor']
-t_sponsors        = """
-DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
-    wos_id varchar(40),
-    conf_id int,
-    sponsor varchar(100)
-)
+    agency varchar(200),
+    grant_id varchar(50)
+);
 """
 
 h_keywords        = ['wos_id', 'keyword']
@@ -168,8 +169,8 @@ t_keywords        = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id varchar(40),
-    keyword varchar(50)
-)
+    keyword varchar(100)
+);
 """
 
 h_keywords_plus   = ['wos_id', 'keyword']
@@ -177,8 +178,74 @@ t_keywords_plus   = """
 DROP TABLE IF EXISTS {0}; 
 CREATE TABLE {0} ( 
     wos_id varchar(40),
-    keyword varchar(50)
-)
+    keyword varchar(100)
+);
 """
+
+h_languages       = ['wos_id', 'language']
+t_languages       = """
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE {0} ( 
+    wos_id varchar(40),
+    language varchar(50)
+);
+"""
+
+h_subheadings       = ['wos_id', 'subheading']
+t_subheadings       = """
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE {0} ( 
+    wos_id varchar(40),
+    subheading varchar(100)
+);
+"""
+
+h_headings       = ['wos_id', 'heading']
+t_headings       = """
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE {0} ( 
+    wos_id varchar(40),
+    heading varchar(100)
+);
+"""
+
+h_subjects       = ['wos_id', 'subject', 'ascatype']
+t_subjects       = """
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE {0} ( 
+    wos_id varchar(40),
+    ascatype varchar(40),
+    subject varchar(100)
+);
+"""
+
+h_conferences    = ['wos_id', 'conf_id', # Primary key
+                    'info', 'title', 'dates', 'conf_city', 'conf_state', 'conf_host']
+t_conferences    = """
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE {0} ( 
+    wos_id    varchar(40),
+    conf_id   varchar(15),
+    info      varchar(500),
+    title     varchar(200),
+    dates     varchar(50),
+    conf_city varchar(50),
+    conf_state varchar(50),
+    conf_host  varchar(100),
+    PRIMARY KEY (wos_id, conf_id)
+);
+"""
+
+h_conf_sponsors  = ['wos_id', 'conf_id', 'sponsor']
+t_conf_sponsors  = """
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE {0} ( 
+    wos_id  varchar(40),
+    conf_id varchar(15),
+    sponsor varchar(100)
+);
+"""
+
+
 
 
