@@ -5,6 +5,7 @@ import mysql.connector
 import logging
 import xml.etree.cElementTree as ET
 import sys
+import json
 
 log_levels = { "DEBUG"   : logging.DEBUG,
                "INFO"    : logging.INFO,
@@ -38,35 +39,11 @@ def extract_editions(wos_id, elem):
              'edition': i.attrib['value']} for i in elem.iterfind('./static_data/summary/EWUID/edition')]
 
 
-def extract_authors(wos_id, elem):
-    authors = []
     
-    for names in elem.iterfind('./static_data/summary/names'):
-        for name in names:
-            author = {'wos_id'   : wos_id,
-                      'position' : name.attrib.get('seq_no', 'NULL'),
-                      'reprint'  : name.attrib.get('reprint', 'NULL'),
-                      'cluster_id': name.attrib.get('dais_id', 'NULL'),
-                      'role'     : name.attrib.get('role','NULL')}
-            for item in name.iter():
-                author[str(item.tag)] = str(item.text)
-            print author
-            authors.extend(author)
-        
-        return authors
-    
-def extract_publisher(wos_id, elem):
-    publisher = {'wos_id': wos_id}
-
-    for publishers in elem.iterfind('./static_data/summary/publishers'):
-        for item in publishers.iter():
-            if item.tag in ['display_name', 'full_name', 'full_address', 'city']:
-                publisher[item.tag] = item.text
-    print publisher
-    return publisher
-
 def extract_addresses(wos_id, elem):
     addresslist = []
+    name_address_relation = []
+    
     for addresses in elem.iterfind('./static_data/fullrecord_metadata/addresses/address_name'):
         
         #print "-"*50        
@@ -103,10 +80,16 @@ def extract_addresses(wos_id, elem):
                 temp = addr.copy()
                 temp.update(t)
                 addresslist.extend([temp])
+                
         #print addresslist
-            
+        for name in list(addresses.iterfind('./names/name')):
+            #print "Name: ", name.tag, name.attrib
+            #print "{0} {1} {2}".format(wos_id, name.attrib['seq_no'], name.attrib['addr_no'])
+            name_address_relation.extend([{'wos_id' : wos_id,
+                                           'position' : name.attrib['seq_no'],
+                                           'addr_num' : name.attrib['addr_no']}])
     #print addresslist
-    return addresslist
+    return addresslist, name_address_relation
         
 
 def extract_authors(wos_id, elem):
@@ -121,19 +104,19 @@ def extract_authors(wos_id, elem):
                       'role'     : name.attrib.get('role','NULL')}
             for item in name.iter():
                 author[str(item.tag)] = str(item.text)
-            authors.extend(author)
+            authors.extend([author])
         
     return authors
 
 def extract_publisher(wos_id, elem):
     publisher = {'wos_id': wos_id}
-    
+
     for publishers in elem.iterfind('./static_data/summary/publishers'):
         for item in publishers.iter():
             if item.tag in ['display_name', 'full_name', 'full_address', 'city']:
                 publisher[item.tag] = item.text
-                return publisher
 
+    return [publisher]
 
 
 def extract_conferences(wos_id, elem):
@@ -180,7 +163,6 @@ def extract_conferences(wos_id, elem):
                               'conf_id' : conference['conf_id'],
                               'sponsor' : sponsor.text}])
             
-            
     #print conference
     #print sponsors
     return conference, sponsors
@@ -215,8 +197,8 @@ def extract_funding(wos_id, elem):
             funding.extend([{'agency'   : grant_agency,
                              'grant_id' : g}])
             
-    return {'wos_id' : wos_id,
-            'funding_text' : text}, funding
+    return [{'wos_id' : wos_id,
+            'funding_text' : text}], funding
                                                                                                                     
 def extract_pub_info(wos_id, elem):
     pub = {'wos_id': wos_id}
@@ -248,11 +230,6 @@ def extract_pub_info(wos_id, elem):
         #print item.tag, item.attrib, item.text
         pub[item.attrib['type']] = item.attrib['value']
 
-    # Oases gold    
-    for item in list(elem.iterfind('./dynamic_data/ic_related/oases/oas')):
-        #print item.tag, item.attrib, item.text
-        if item.text == 'Yes' and item.attrib['type'] == 'gold':
-            pub['oases_type_gold'] = 'Yes'
 
     languages = []
     for lang in list(elem.iterfind('./static_data/fullrecord_metadata/languages/language')):
@@ -287,7 +264,7 @@ def extract_pub_info(wos_id, elem):
 
     # Find the oases type gold status
     for item in list(elem.iterfind('./dynamic_data/ic_related/oases/oas')):
-        print item.tag, item.attrib, item.text
+        #print item.tag, item.attrib, item.text
         if item.text == 'Yes' and item.attrib['type'] == 'gold':
             pub['oases_type_gold'] = 'Yes'
             #print "Gold = Yes"
@@ -301,9 +278,50 @@ def extract_pub_info(wos_id, elem):
     pub['abstract_text'] = abstract_text
             
          
-    return pub
+    return [pub], languages, headings, subheadings, subjects
 
 
+def extract_keywords(wos_id, elem):
+    keywords = []
+    keywordsplus = []
+
+    for keyword in list(elem.iterfind('./static_data/fullrecord_metadata/keywords/keyword')):
+        #print "Keyword :", keyword.text
+        keywords.extend([{'wos_id' : wos_id,
+                          'keyword' : keyword.text}])
+                
+    for keyword in list(elem.iterfind('./static_data/item/keywords_plus/keyword')):
+        #print "Plus ", keyword.tag, keyword.text
+        keywordsplus.extend([{'wos_id' : wos_id,
+                              'keyword' : keyword.text}])
+        
+    return keywords, keywordsplus
+
+
+def dump(data, header, sql_header, table_name, file_name):
+    
+    with open(file_name, 'w') as f_handle:
+        
+        f_handle.write(sql_header.format(table_name))
+        f_handle.write('\n')
+        #f_handle.write("CREATE TABLE {0} ({1})\n".format(table_name, ', '.join(header)))
+        f_handle.write("INSERT INTO {0} ({1})\n".format(table_name, ', '.join(header)))
+        f_handle.write("VALUES\n")
+
+        for row in data :
+            f_handle.write('\n(')
+
+            f_handle.write(','.join(['\''+row.get(attr, 'NULL')+'\'' for attr in header]))
+            #for attr in header:
+            #    f_handle.write('\'' + row.get(attr, 'NULL') + '\', ')
+                #print [row.get(attr, 'NULL') for attr in header]
+            #f_handle.write(['\''+row.get(attr, 'NULL')+'\'' for attr in header].join(','))
+            f_handle.write('),')            
+
+
+        f_handle.seek(-1, 1)
+        f_handle.write(';\n')
+        
 if __name__ == "__main__" :
     
     parser   = argparse.ArgumentParser()
