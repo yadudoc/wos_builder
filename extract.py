@@ -303,25 +303,32 @@ def extract_keywords(wos_id, elem):
         
     return keywords, keywordsplus
 
-
+# From stackoverflow
+# http://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
+def chunks(l, count):
+    """Yield successive n-sized chunks from l."""
+    for i in range(0, len(l), count):
+        yield l[i:i+count]
+        
 def dump(data, header, sql_header, table_name, file_name):
-
+    chunksize = 1000
+    
     print  "Writing out {0} to {1}".format(table_name, file_name)
     with open(file_name, 'w') as f_handle:
         
         f_handle.write(sql_header.format(table_name))
         f_handle.write('\n')
-        #f_handle.write("CREATE TABLE {0} ({1})\n".format(table_name, ', '.join(header)))
-        f_handle.write("INSERT INTO {0} ({1})\n".format(table_name, ', '.join(header)))
-        f_handle.write("VALUES\n")
+        for chunk in chunks(data, 1000):
+            f_handle.write("INSERT IGNORE INTO {0} ({1})\n".format(table_name, ', '.join(header)))
+            f_handle.write("VALUES\n")
 
-        for row in data :
-            f_handle.write('\n(')
-            f_handle.write(','.join([json.dumps(row.get(attr, 'NULL')) for attr in header]))
-            f_handle.write('),')            
+            for row in chunk :
+                f_handle.write('\n(')
+                f_handle.write(','.join([json.dumps(row.get(attr, 'NULL')) for attr in header]))
+                f_handle.write('),')            
 
-        f_handle.seek(-1, 1)
-        f_handle.write(';\n')
+            f_handle.seek(-1, 1)
+            f_handle.write(';\n')            
         
 if __name__ == "__main__" :
     

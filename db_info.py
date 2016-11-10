@@ -6,7 +6,7 @@ h_publishers      = ['wos_id', # Primary key
 t_publishers      = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40) PRIMARY KEY,
     display_name varchar(200),
     full_name    varchar(200),
@@ -16,22 +16,18 @@ CREATE TABLE {0} (
 """
 
 
-print "*"*50
-print "WARNING , Publication abstract is disabled"
-print "*"*50
-
 h_publications    = ['wos_id', # Primary key 
                      'accession_no', 'issn', 'eissn', 'doi', # cluster_related
                      'doc_type', 'title', 'pubyear', 'pubmonth', 'coverdate', 'sortdate',
                      'vol', 'pubtype','issue',
                      'supplement', 'special_issue', 'part_no',
                      'indicator', 'is_archive', 'city', 'country',
-                     'oases_type_gold', 'has_abstract' ]
-                     #'abstract']
+                     'oases_type_gold', 'has_abstract',
+                     'abstract']
 t_publications    = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id          varchar(40) PRIMARY KEY,
 
     accession_no    varchar(10),
@@ -67,7 +63,7 @@ h_editions        = ['wos_id', 'edition']
 t_editions        = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     edition varchar(20)
 );
@@ -80,7 +76,7 @@ h_contributors    = ['wos_id', 'position', #Primary key
 t_contributors    = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id       varchar(40),
     position     varchar(5),
     reprint      varchar(5),
@@ -105,7 +101,7 @@ h_institutions    = ['wos_id', 'addr_num', # Duplication in org and suborg preve
 t_institutions    = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id           varchar(40),
     addr_num         varchar(5),
     organization     varchar(200),
@@ -122,7 +118,7 @@ h_name_inst       = ['wos_id', 'position', 'addr_num']
 t_name_inst       = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id           varchar(40),
     position         varchar(5),
     addr_num         varchar(5)
@@ -135,7 +131,7 @@ h_references      = ['wos_id', 'uid', # Primary key
 t_references      = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     uid varchar(50),
     citedAuthor varchar(100),
@@ -146,7 +142,8 @@ CREATE TABLE {0} (
     citedWork  varchar(100),
     doi        varchar(50),
     art_no     varchar(20),
-    patent_no  varchar(20)
+    patent_no  varchar(20),
+    PRIMARY KEY (wos_id, uid)
 );
 """
 
@@ -155,9 +152,10 @@ h_fundingtexts    = ['wos_id', # Primary key
 t_fundingtexts    = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
-    funding_text varchar(1000)
+    funding_text varchar(1000),
+    PRIMARY KEY (wos_id)
 );
 """
 
@@ -166,7 +164,7 @@ h_funding         = ['wos_id', 'agency', 'grant_id']
 t_funding         = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     agency varchar(200),
     grant_id varchar(50)
@@ -177,7 +175,7 @@ h_keywords        = ['wos_id', 'keyword']
 t_keywords        = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     keyword varchar(100)
 );
@@ -187,7 +185,7 @@ h_keywords_plus   = ['wos_id', 'keyword']
 t_keywords_plus   = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     keyword varchar(100)
 );
@@ -197,7 +195,7 @@ h_languages       = ['wos_id', 'language']
 t_languages       = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     language varchar(50)
 );
@@ -207,7 +205,7 @@ h_subheadings       = ['wos_id', 'subheading']
 t_subheadings       = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     subheading varchar(100)
 );
@@ -217,7 +215,7 @@ h_headings       = ['wos_id', 'heading']
 t_headings       = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     heading varchar(100)
 );
@@ -227,7 +225,7 @@ h_subjects       = ['wos_id', 'subject', 'ascatype']
 t_subjects       = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id varchar(40),
     ascatype varchar(40),
     subject varchar(100)
@@ -239,7 +237,7 @@ h_conferences    = ['wos_id', 'conf_id', # Primary key
 t_conferences    = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id    varchar(40),
     conf_id   varchar(15),
     info      varchar(500),
@@ -256,7 +254,7 @@ h_conf_sponsors  = ['wos_id', 'conf_id', 'sponsor']
 t_conf_sponsors  = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
-CREATE TABLE {0} ( 
+CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id  varchar(40),
     conf_id varchar(15),
     sponsor varchar(100)
@@ -264,5 +262,13 @@ CREATE TABLE {0} (
 """
 
 
+if __name__ == "__main__":
 
+    
+    for table in [t_publishers, t_publications, t_editions, t_name_inst, t_contributors,
+                  t_institutions, t_references, t_fundingtexts, t_funding, t_keywords,
+                  t_keywords_plus, t_languages, t_subheadings, t_headings,
+                  t_subjects, t_conferences, t_conf_sponsors]:
+        print table.replace('-- ', '')
+    
 

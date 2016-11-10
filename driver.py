@@ -15,7 +15,7 @@ log_levels = { "DEBUG"   : logging.DEBUG,
                "CRITICAL": logging.CRITICAL
 }
 
-def main (sourcefile, datadir):
+def main (sourcefile, year, datadir):
 
     count  = 0
     logging.debug("Starting processing {0}".format(sourcefile))
@@ -104,25 +104,26 @@ def main (sourcefile, datadir):
                 pass
                 
     try :
-        x.dump(Edit_list,    h_editions,       t_editions,         'editions',       '{0}/editions.sql'.format(datadir))
-        x.dump(Ftxt_list,    h_fundingtexts,   t_fundingtexts,     'fundingtext',    '{0}/fundingtext.sql'.format(datadir))
-        x.dump(Fund_list,    h_funding,        t_funding,          'funding',        '{0}/funding.sql'.format(datadir))
-        x.dump(Keyw_list,    h_keywords,       t_keywords,         'keywords',       '{0}/keywords.sql'.format(datadir))
-        x.dump(Keyp_list,    h_keywords_plus,  t_keywords_plus,    'keywords_plus',  '{0}/keywords_plus.sql'.format(datadir))
-        x.dump(Conf_list,    h_conferences,    t_conferences,      'conferences',    '{0}/conferences.sql'.format(datadir))
-        x.dump(CoSp_list,    h_conf_sponsors,  t_conf_sponsors,    'confSponsors',   '{0}/confSponsors.sql'.format(datadir))
-        x.dump(Refs_list,    h_references,     t_references,       'refs',           '{0}/references.sql'.format(datadir))
-        x.dump(Pubs_list,    h_publications,   t_publications,     'publications',   '{0}/publications.sql'.format(datadir))
-        x.dump(Lang_list,    h_languages,      t_languages,        'languages',      '{0}/langauges.sql'.format(datadir))
-        x.dump(Head_list,    h_headings,       t_headings,         'headings',       '{0}/headings.sql'.format(datadir))
-        x.dump(Subh_list,    h_subheadings,    t_subheadings,      'subheadings',    '{0}/subheadings.sql'.format(datadir))
-        x.dump(Subj_list,    h_subjects,       t_subjects,         'subjects',       '{0}/subjects.sql'.format(datadir))
-        x.dump(Publ_list,    h_publishers,     t_publishers,       'publishers',     '{0}/publishers.sql'.format(datadir))
-        x.dump(Auth_list,    h_contributors,   t_contributors,     'contributors',   '{0}/contributors.sql'.format(datadir))
-        x.dump(Inst_list,    h_institutions,   t_institutions,     'institutions',   '{0}/institutions.sql'.format(datadir))
-        x.dump(NaIn_list,    h_name_inst,      t_name_inst,        'affiliations',   '{0}/affiliations.sql'.format(datadir))
+        x.dump(Edit_list,    h_editions,       t_editions,         year+'editions',       '{0}/editions.sql'.format(datadir))
+        x.dump(Ftxt_list,    h_fundingtexts,   t_fundingtexts,     year+'fundingtext',    '{0}/fundingtext.sql'.format(datadir))
+        x.dump(Fund_list,    h_funding,        t_funding,          year+'funding',        '{0}/funding.sql'.format(datadir))
+        x.dump(Keyw_list,    h_keywords,       t_keywords,         year+'keywords',       '{0}/keywords.sql'.format(datadir))
+        x.dump(Keyp_list,    h_keywords_plus,  t_keywords_plus,    year+'keywords_plus',  '{0}/keywords_plus.sql'.format(datadir))
+        x.dump(Conf_list,    h_conferences,    t_conferences,      year+'conferences',    '{0}/conferences.sql'.format(datadir))
+        x.dump(CoSp_list,    h_conf_sponsors,  t_conf_sponsors,    year+'confSponsors',   '{0}/confSponsors.sql'.format(datadir))
+        x.dump(Refs_list,    h_references,     t_references,       year+'refs',           '{0}/references.sql'.format(datadir))
+        x.dump(Pubs_list,    h_publications,   t_publications,     year+'publications',   '{0}/publications.sql'.format(datadir))
+        x.dump(Lang_list,    h_languages,      t_languages,        year+'languages',      '{0}/langauges.sql'.format(datadir))
+        x.dump(Head_list,    h_headings,       t_headings,         year+'headings',       '{0}/headings.sql'.format(datadir))
+        x.dump(Subh_list,    h_subheadings,    t_subheadings,      year+'subheadings',    '{0}/subheadings.sql'.format(datadir))
+        x.dump(Subj_list,    h_subjects,       t_subjects,         year+'subjects',       '{0}/subjects.sql'.format(datadir))
+        x.dump(Publ_list,    h_publishers,     t_publishers,       year+'publishers',     '{0}/publishers.sql'.format(datadir))
+        x.dump(Auth_list,    h_contributors,   t_contributors,     year+'contributors',   '{0}/contributors.sql'.format(datadir))
+        x.dump(Inst_list,    h_institutions,   t_institutions,     year+'institutions',   '{0}/institutions.sql'.format(datadir))
+        x.dump(NaIn_list,    h_name_inst,      t_name_inst,        year+'affiliations',   '{0}/affiliations.sql'.format(datadir))
     except Exception as e:
         print "[ERROR] Dumping failed for {0}".format(sourcefile)
+        logging.error("[ERROR] Dumping failed for {0}".format(sourcefile))
         exit(-1)
         
     return
@@ -150,11 +151,13 @@ if __name__ == "__main__" :
         os.makedirs(args.dir)
     logging.debug("Data output folder confirmed  :  {0}".format(args.dir))
 
-    if args.sourcefile.startswith('WR'):
+    year = ''
+    if os.path.basename(args.sourcefile).startswith('WR'):
         s = args.sourcefile.split('_')
-        year = s[1]
-        print year
+        year = s[1] + "_"
         print args.sourcefile.replace('.xml', '')
+
+    print "[DEBUG] Processing year : {0}".format(year)
     
-    main(args.sourcefile, args.dir)
+    main(args.sourcefile, year, args.dir)
     
