@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 import argparse
-import mysql.connector
+#import mysql.connector
 import logging
 import xml.etree.cElementTree as ET
 import sys

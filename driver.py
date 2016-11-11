@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import os
 import argparse
-import mysql.connector
 import logging
 import xml.etree.cElementTree as ET
 import sys
