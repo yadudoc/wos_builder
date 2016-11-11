@@ -34,9 +34,6 @@ extract_data() {
 		  -u $wosuser \
 		  -p$wospasswd < $sql
 	done
-	echo "Exiting early"
-	return
-	
     done
     popd
 }
