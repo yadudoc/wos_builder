@@ -281,7 +281,7 @@ def extract_pub_info(wos_id, elem):
         if abstract_text == 'NULL':
             abstract_text = ''
         abstract_text = abstract_text + '\n<p>' + ab.text + '</p>'
-    pub['abstract_text'] = abstract_text
+    pub['abstract'] = abstract_text
             
          
     return [pub], languages, headings, subheadings, subjects

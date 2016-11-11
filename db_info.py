@@ -23,7 +23,7 @@ h_publications    = ['wos_id', # Primary key
                      'supplement', 'special_issue', 'part_no',
                      'indicator', 'is_archive', 'city', 'country',
                      'oases_type_gold', 'has_abstract',
-                     'abstract_text']
+                     'abstract']
 t_publications    = """
 USE wos;
 -- DROP TABLE IF EXISTS {0}; 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS {0} (
     country         varchar(20),
     has_abstract    varchar(5),
     oases_type_gold varchar(5),
-    abstract_text   varchar(3000) DEFAULT NULL
+    abstract        varchar(3000)
 );
 """
 
