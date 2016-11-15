@@ -310,25 +310,34 @@ def chunks(l, count):
     for i in range(0, len(l), count):
         yield l[i:i+count]
         
-def dump(data, header, sql_header, table_name, file_name):
+def dump(data, header, sql_header, table_name, file_name, data_format="sql"):
     chunksize = 1000
     
     print  "Writing out {0} to {1}".format(table_name, file_name)
-    with open(file_name, 'w') as f_handle:
+
+    if data_format == "sql" :
+        print "Writing SQL output"
+        with open(file_name, 'w') as f_handle:
         
-        f_handle.write(sql_header.format(table_name))
-        f_handle.write('\n')
-        for chunk in chunks(data, 1000):
-            f_handle.write("INSERT IGNORE INTO {0} ({1})\n".format(table_name, ', '.join(header)))
-            f_handle.write("VALUES\n")
+            f_handle.write(sql_header.format(table_name))
+            f_handle.write('\n')
+            for chunk in chunks(data, 1000):
+                f_handle.write("INSERT IGNORE INTO {0} ({1})\n".format(table_name, ', '.join(header)))
+                f_handle.write("VALUES\n")
 
-            for row in chunk :
-                f_handle.write('\n(')
-                f_handle.write(','.join([json.dumps(row.get(attr, 'NULL')) for attr in header]))
-                f_handle.write('),')            
+                for row in chunk :
+                    f_handle.write('\n(')
+                    f_handle.write(','.join([json.dumps(row.get(attr, 'NULL')) for attr in header]))
+                    f_handle.write('),')            
 
-            f_handle.seek(-1, 1)
-            f_handle.write(';\n')            
+                f_handle.seek(-1, 1)
+                f_handle.write(';\n')
+    elif data_format == "json" :
+        print "Writing json"
+        datadict = { table_name : data }
+        with open(file_name, 'wb') as f_handle:
+            json.dump(datadict, f_handle)
+    return
         
 if __name__ == "__main__" :
     
