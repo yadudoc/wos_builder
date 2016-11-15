@@ -20,21 +20,33 @@ setup_data() {
 }
 
 extract_data() {
+    format=$1
     pushd .
     chmod a+x driver.py
-    for xml in `echo ../*xml`
-    do
-	./driver.py -s $xml -l ../extract.log -d ../sqldata
 
-	for sql in $(echo ../sqldata/*sql)
+    if [[ $format == "sql" ]]
+    then
+	for xml in `echo ../*xml`
 	do
-	    echo "Loading file $sql extracted from $xml to wos2"
-	    mysql -h wos2.cvirc91pe37a.us-east-1.rds.amazonaws.com \
-		  -P 3306 \
-		  -u $wosuser \
-		  -p$wospasswd < $sql
+	    ./driver.py -s $xml -l ../extract.log -d ../sqldata
+	    
+	    for sql in $(echo ../sqldata/*sql)
+	    do
+		echo "Loading file $sql extracted from $xml to wos2"
+		mysql -h wos2.cvirc91pe37a.us-east-1.rds.amazonaws.com \
+		      -P 3306 \
+		      -u $wosuser \
+		      -p$wospasswd < $sql
+	    done
 	done
-    done
+
+    elif [[ $format == "json" ]]
+	 apt-get install -y parallel
+	 parallel ./driver.py -l ../extract.log -d ../jsondata -f json -s :: echo ../*xml
+	 
+    then
+    fi
+	 
     popd
 }
 
