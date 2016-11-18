@@ -1,0 +1,18 @@
+use wos;
+DROP TABLE IF EXISTS 2015_affiliations ;
+DROP TABLE IF EXISTS 2015_confSponsors ;
+DROP TABLE IF EXISTS 2015_conferences  ;
+DROP TABLE IF EXISTS 2015_contributors ;
+DROP TABLE IF EXISTS 2015_editions     ;
+DROP TABLE IF EXISTS 2015_funding      ;
+DROP TABLE IF EXISTS 2015_fundingtext  ;
+DROP TABLE IF EXISTS 2015_headings     ;
+DROP TABLE IF EXISTS 2015_institutions ;
+DROP TABLE IF EXISTS 2015_keywords     ;
+DROP TABLE IF EXISTS 2015_keywords_plus;
+DROP TABLE IF EXISTS 2015_languages    ;
+DROP TABLE IF EXISTS 2015_publications ;
+DROP TABLE IF EXISTS 2015_publishers   ;
+DROP TABLE IF EXISTS 2015_refs         ;
+DROP TABLE IF EXISTS 2015_subheadings  ;
+DROP TABLE IF EXISTS 2015_subjects     ;

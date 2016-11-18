@@ -1,0 +1,18 @@
+use wos;
+DROP TABLE IF EXISTS affiliations ;
+DROP TABLE IF EXISTS confSponsors ;
+DROP TABLE IF EXISTS conferences  ;
+DROP TABLE IF EXISTS contributors ;
+DROP TABLE IF EXISTS editions     ;
+DROP TABLE IF EXISTS funding      ;
+DROP TABLE IF EXISTS fundingtext  ;
+DROP TABLE IF EXISTS headings     ;
+DROP TABLE IF EXISTS institutions ;
+DROP TABLE IF EXISTS keywords     ;
+DROP TABLE IF EXISTS keywords_plus;
+DROP TABLE IF EXISTS languages    ;
+DROP TABLE IF EXISTS publications ;
+DROP TABLE IF EXISTS publishers   ;
+DROP TABLE IF EXISTS refs         ;
+DROP TABLE IF EXISTS subheadings  ;
+DROP TABLE IF EXISTS subjects     ;
