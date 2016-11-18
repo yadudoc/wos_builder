@@ -136,7 +136,7 @@ if __name__ == "__main__" :
     parser.add_argument("-v", "--verbosity", default="DEBUG", help="set level of verbosity, DEBUG, INFO, WARN")
     parser.add_argument("-l", "--logfile", default="./extract.log", help="Logfile path. Defaults to ./tabulator.log")
     parser.add_argument("-d", "--dir", default=".", help="Folder to write data to, Default is current folder")
-    parser.add_argument("-f", "--format", default="sql", help="Output format to dump into")
+    parser.add_argument("-f", "--formatdata", default="sql", help="Output format to dump into")
     args   = parser.parse_args()
 
     print "Processing : {0}".format(args.sourcefile)
@@ -159,5 +159,5 @@ if __name__ == "__main__" :
 
     print "[DEBUG] Processing year : {0}".format(year)
     
-    main(args.sourcefile, year, args.dir, args.format)
+    main(args.sourcefile, year, args.dir, args.formatdata)
     

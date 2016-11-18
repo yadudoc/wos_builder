@@ -1,0 +1,30 @@
+
+USE wos;
+-- DROP TABLE IF EXISTS subjects; 
+CREATE TABLE IF NOT EXISTS subjects ( 
+    wos_id varchar(40),
+    ascatype varchar(40),
+    subject varchar(100)
+);
+
+INSERT IGNORE INTO subjects (wos_id, subject, ascatype)
+VALUES
+
+("WOS:000354056000012","Mathematics","traditional"),
+("WOS:000354056000012","Mathematics","extended"),
+("WOS:000353952100024","Pharmacology & Pharmacy","traditional"),
+("WOS:000353952100024","Pharmacology & Pharmacy","extended"),
+("WOS:000353975000017","Orthopedics","traditional"),
+("WOS:000353975000017","Orthopedics","extended"),
+("WOS:000353977600022","Orthopedics","traditional"),
+("WOS:000353977600022","Surgery","traditional"),
+("WOS:000353977600022","Orthopedics","extended"),
+("WOS:000353977600022","Surgery","extended"),
+("WOS:000353832200020","Urology & Nephrology","traditional"),
+("WOS:000353832200020","Urology & Nephrology","extended"),
+("WOS:000357413500004","Public, Environmental & Occupational Health","traditional"),
+("WOS:000357413500004","Public, Environmental & Occupational Health","extended"),
+("WOS:000353996400021","Oncology","traditional"),
+("WOS:000353996400021","Surgery","traditional"),
+("WOS:000353996400021","Oncology","extended"),
+("WOS:000353996400021","Surgery","extended"),
