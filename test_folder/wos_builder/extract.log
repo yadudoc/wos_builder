@@ -4,3 +4,10 @@
 11-10 22:27 root         DEBUG    Data output folder confirmed  :  .
 11-10 22:27 root         DEBUG    Document processing starts
 11-10 22:27 root         DEBUG    Data output folder confirmed  :  .
+12-09 19:07 root         DEBUG    Document processing starts
+12-09 19:07 root         DEBUG    Data output folder confirmed  :  ../data/
+12-09 19:07 root         DEBUG    Starting processing ../WR_1985_20160322044146_DSSHPSH_0001.xml
+12-09 19:25 root         DEBUG    Document processing starts
+12-09 19:25 root         DEBUG    Data output folder confirmed  :  ../data/
+12-09 19:25 root         DEBUG    Starting processing ../WR_1985_20160322044146_DSSHPSH_0001.xml
+12-09 19:26 root         DEBUG    Completed processing ../WR_1985_20160322044146_DSSHPSH_0001.xml

@@ -94,7 +94,7 @@ EOF
 # Install packages
 #installs
 # Setup the data files
-#setup_data
+setup_data
 
 if [[ "$1" != "json" ]]
 then

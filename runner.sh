@@ -51,7 +51,7 @@ extract_data() {
 }
 
 get_year() {
-    year=''
+   year=''
     echo ../*zip &> /dev/null
     if [[ $? -eq 0 ]]
     then
@@ -98,7 +98,7 @@ setup_data
 
 # Flush the DB for this year's tables
 year=$(get_year)
-flush_db $year
+#flush_db $year
 
 # Extract and dump data to DB
 extract_data

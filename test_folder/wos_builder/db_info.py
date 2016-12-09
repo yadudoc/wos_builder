@@ -15,6 +15,16 @@ CREATE TABLE IF NOT EXISTS {0} (
 );
 """
 
+h_source = ['wos_id', 'source', 'item']
+t_source = """
+USE wos;
+DROP TABLE IF EXISTS {0}; 
+CREATE TABLE IF NOT EXISTS {0} ( 
+    wos_id          varchar(40) PRIMARY KEY,
+    item            varchar(200),
+    source          varchar(200)
+);
+"""
 
 h_publications    = ['wos_id', # Primary key 
                      'accession_no', 'issn', 'eissn', 'doi', # cluster_related

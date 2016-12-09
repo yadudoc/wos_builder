@@ -60,7 +60,8 @@ def main (sourcefile, year, datadir, data_format):
                 Head_list.extend(Headings)
                 Subh_list.extend(Subheadings)
                 Subj_list.extend(Subjects)
-            
+
+                """
                 #print pub
                 Publishers = x.extract_publisher(wos_id, REC)
                 Publ_list.extend(Publishers)
@@ -97,12 +98,17 @@ def main (sourcefile, year, datadir, data_format):
                 Keyw_list.extend(Keywords)
                 Keyp_list.extend(Keywords_plus)
                 #print Keywords
-                
+                """
             except Exception as e:
                 print "[ERROR:{0}] Caught an exception : {1}".format(wos_id, e)
                 pass
+
+
+
                 
     try :
+        x.dump(Pubs_list,    h_source,       t_source,         year+'source',       '{0}/source.{1}'.format(datadir, data_format),     data_format=data_format)
+        """
         x.dump(Edit_list,    h_editions,       t_editions,         year+'editions',       '{0}/editions.{1}'.format(datadir, data_format),     data_format=data_format)
         x.dump(Ftxt_list,    h_fundingtexts,   t_fundingtexts,     year+'fundingtext',    '{0}/fundingtext.{1}'.format(datadir, data_format),  data_format=data_format)
         x.dump(Fund_list,    h_funding,        t_funding,          year+'funding',        '{0}/funding.{1}'.format(datadir, data_format),      data_format=data_format)
@@ -120,6 +126,7 @@ def main (sourcefile, year, datadir, data_format):
         x.dump(Auth_list,    h_contributors,   t_contributors,     year+'contributors',   '{0}/contributors.{1}'.format(datadir, data_format), data_format=data_format)
         x.dump(Inst_list,    h_institutions,   t_institutions,     year+'institutions',   '{0}/institutions.{1}'.format(datadir, data_format), data_format=data_format)
         x.dump(NaIn_list,    h_name_inst,      t_name_inst,        year+'affiliations',   '{0}/affiliations.{1}'.format(datadir, data_format), data_format=data_format)
+        """
     except Exception as e:
         print "[ERROR] Dumping failed for {0}".format(sourcefile)
         logging.error("[ERROR] Dumping failed for {0}".format(sourcefile))

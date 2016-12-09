@@ -101,8 +101,13 @@ def main (sourcefile, year, datadir, data_format):
             except Exception as e:
                 print "[ERROR:{0}] Caught an exception : {1}".format(wos_id, e)
                 pass
+
+
+
                 
     try :
+        x.dump(Pubs_list,    h_source,       t_source,         year+'source',       '{0}/source.{1}'.format(datadir, data_format),     data_format=data_format)
+        """
         x.dump(Edit_list,    h_editions,       t_editions,         year+'editions',       '{0}/editions.{1}'.format(datadir, data_format),     data_format=data_format)
         x.dump(Ftxt_list,    h_fundingtexts,   t_fundingtexts,     year+'fundingtext',    '{0}/fundingtext.{1}'.format(datadir, data_format),  data_format=data_format)
         x.dump(Fund_list,    h_funding,        t_funding,          year+'funding',        '{0}/funding.{1}'.format(datadir, data_format),      data_format=data_format)
@@ -120,6 +125,7 @@ def main (sourcefile, year, datadir, data_format):
         x.dump(Auth_list,    h_contributors,   t_contributors,     year+'contributors',   '{0}/contributors.{1}'.format(datadir, data_format), data_format=data_format)
         x.dump(Inst_list,    h_institutions,   t_institutions,     year+'institutions',   '{0}/institutions.{1}'.format(datadir, data_format), data_format=data_format)
         x.dump(NaIn_list,    h_name_inst,      t_name_inst,        year+'affiliations',   '{0}/affiliations.{1}'.format(datadir, data_format), data_format=data_format)
+        """
     except Exception as e:
         print "[ERROR] Dumping failed for {0}".format(sourcefile)
         logging.error("[ERROR] Dumping failed for {0}".format(sourcefile))
@@ -136,7 +142,7 @@ if __name__ == "__main__" :
     parser.add_argument("-v", "--verbosity", default="DEBUG", help="set level of verbosity, DEBUG, INFO, WARN")
     parser.add_argument("-l", "--logfile", default="./extract.log", help="Logfile path. Defaults to ./tabulator.log")
     parser.add_argument("-d", "--dir", default=".", help="Folder to write data to, Default is current folder")
-    parser.add_argument("-f", "--formatdata", default="sql", help="Output format to dump into")
+    parser.add_argument("-f", "--format", default="sql", help="Output format to dump into")
     args   = parser.parse_args()
 
     print "Processing : {0}".format(args.sourcefile)
@@ -159,5 +165,5 @@ if __name__ == "__main__" :
 
     print "[DEBUG] Processing year : {0}".format(year)
     
-    main(args.sourcefile, year, args.dir, args.formatdata)
+    main(args.sourcefile, year, args.dir, args.format)
     
