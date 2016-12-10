@@ -60,7 +60,8 @@ def main (sourcefile, year, datadir, data_format):
                 Head_list.extend(Headings)
                 Subh_list.extend(Subheadings)
                 Subj_list.extend(Subjects)
-            
+
+                """
                 #print pub
                 Publishers = x.extract_publisher(wos_id, REC)
                 Publ_list.extend(Publishers)
@@ -97,7 +98,7 @@ def main (sourcefile, year, datadir, data_format):
                 Keyw_list.extend(Keywords)
                 Keyp_list.extend(Keywords_plus)
                 #print Keywords
-                
+                """
             except Exception as e:
                 print "[ERROR:{0}] Caught an exception : {1}".format(wos_id, e)
                 pass
