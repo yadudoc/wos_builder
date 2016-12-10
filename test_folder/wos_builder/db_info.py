@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS {0} (
 h_source = ['wos_id', 'source', 'item']
 t_source = """
 USE wos;
-DROP TABLE IF EXISTS {0}; 
+-- DROP TABLE IF EXISTS {0}; 
 CREATE TABLE IF NOT EXISTS {0} ( 
     wos_id          varchar(40) PRIMARY KEY,
     item            varchar(200),

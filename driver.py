@@ -104,7 +104,6 @@ def main (sourcefile, year, datadir, data_format):
                 pass
 
 
-
                 
     try :
         x.dump(Pubs_list,    h_source,       t_source,         year+'source',       '{0}/source.{1}'.format(datadir, data_format),     data_format=data_format)
