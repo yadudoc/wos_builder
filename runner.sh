@@ -40,11 +40,10 @@ extract_data() {
 	    done
 	done
 
-    elif [[ $format == "json" ]]
+    elif [[ $format == "json" ]]; then
 	 apt-get install -y parallel
-	 parallel ./driver.py -l ../extract.log -d ../jsondata -f json -s :: echo ../*xml
-	 
-    then
+	 parallel ./driver.py -l ../extract.log -d ../jsondata -f json -s :: echo ../*xml	 
+
     fi
 	 
     popd
