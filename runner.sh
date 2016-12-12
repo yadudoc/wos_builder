@@ -100,4 +100,4 @@ year=$(get_year)
 #flush_db $year
 
 # Extract and dump data to DB
-extract_data
+extract_data sql
